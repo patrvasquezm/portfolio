@@ -226,6 +226,9 @@ function App() {
     <div className="ide">
       <ActivityBar isDark={isDark} toggleTheme={() => setIsDark(!isDark)} />
       <Sidebar active={active} onOpen={open} isMenuOpen={isMenuOpen} />
+      {isMenuOpen && (
+        <div className="sidebar-backdrop" onClick={() => setIsMenuOpen(false)} />
+      )}
       <div className="main">
         <TabBar tabs={tabs} active={active} onSelect={setActive} onClose={close} toggleMenu={() => setIsMenuOpen(!isMenuOpen)} />
         <Breadcrumb file={file} />
