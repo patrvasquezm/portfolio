@@ -275,6 +275,12 @@
   .stack-pill .ico { width: 22px; height: 22px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
   .stack-pill .ico svg { width: 22px; height: 22px; }
   .stack-pill .name { font-family: var(--sans); font-size: 13px; color: var(--fg-0); font-weight: 500; }
+  
+  .theme-invert-dark { filter: invert(1); }
+  body.light-mode .theme-invert-dark { filter: invert(0); }
+  
+  .theme-invert-light { filter: invert(0); }
+  body.light-mode .theme-invert-light { filter: invert(1); }
 
   .stack-more {
     display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px;
