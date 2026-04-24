@@ -9,7 +9,7 @@ const FILES = [
   { id: 'contact',    name: 'contact.yml',    kind: 'yml',  path: '~',            view: () => <ContactView /> },
 ];
 
-function ActivityBar() {
+function ActivityBar({ isDark, toggleTheme }) {
   return (
     <div className="activity">
       <button className="act-btn on" title="Explorer" dangerouslySetInnerHTML={{ __html: IconSvgs.explorer }} />
@@ -18,17 +18,18 @@ function ActivityBar() {
       <button className="act-btn" title="Run & Debug" dangerouslySetInnerHTML={{ __html: IconSvgs.debug }} />
       <button className="act-btn" title="Extensions" dangerouslySetInnerHTML={{ __html: IconSvgs.ext }} />
       <div className="act-spacer" />
+      <button className="act-btn" title="Toggle Theme" onClick={toggleTheme} dangerouslySetInnerHTML={{ __html: isDark ? IconSvgs.sun : IconSvgs.moon }} />
       <button className="act-btn" title="Settings" dangerouslySetInnerHTML={{ __html: IconSvgs.settings }} />
     </div>
   );
 }
 
-function Sidebar({ active, onOpen }) {
+function Sidebar({ active, onOpen, isMenuOpen }) {
   const [root, setRoot] = useState(true);
   const [projOpen, setProjOpen] = useState(true);
 
   return (
-    <aside className="sidebar">
+    <aside className={`sidebar ${isMenuOpen ? 'open' : ''}`}>
       <h4>Explorer</h4>
       <div className="explorer">
         <div className={`tree-folder ${root ? 'open' : ''}`} onClick={() => setRoot(!root)}>
@@ -93,9 +94,10 @@ function Sidebar({ active, onOpen }) {
   );
 }
 
-function TabBar({ tabs, active, onSelect, onClose }) {
+function TabBar({ tabs, active, onSelect, onClose, toggleMenu }) {
   return (
     <div className="tabbar">
+      <div className="menu-toggle" onClick={toggleMenu} dangerouslySetInnerHTML={{ __html: IconSvgs.menu }} />
       {tabs.map(id => {
         const f = FILES.find(x => x.id === id);
         if (!f) return null;
@@ -197,10 +199,17 @@ function StatusBar({ file }) {
 function App() {
   const [active, setActive] = useState('about');
   const [tabs, setTabs] = useState(['about']);
+  const [isDark, setIsDark] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.classList.toggle('light-mode', !isDark);
+  }, [isDark]);
 
   const open = (id) => {
     setActive(id);
     setTabs(prev => prev.includes(id) ? prev : [...prev, id]);
+    setIsMenuOpen(false);
   };
 
   const close = (id) => {
@@ -216,10 +225,10 @@ function App() {
 
   return (
     <div className="ide">
-      <ActivityBar />
-      <Sidebar active={active} onOpen={open} />
+      <ActivityBar isDark={isDark} toggleTheme={() => setIsDark(!isDark)} />
+      <Sidebar active={active} onOpen={open} isMenuOpen={isMenuOpen} />
       <div className="main">
-        <TabBar tabs={tabs} active={active} onSelect={setActive} onClose={close} />
+        <TabBar tabs={tabs} active={active} onSelect={setActive} onClose={close} toggleMenu={() => setIsMenuOpen(!isMenuOpen)} />
         <Breadcrumb file={file} />
         <Editor file={file} />
       </div>

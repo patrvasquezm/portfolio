@@ -19,32 +19,32 @@ const LOGOS = {
 
 // Core stack — tight selection.
 const STACK_CORE = [
-  { name: 'Python',                        logo: LOGOS.python },
-  { name: 'n8n',                           logo: LOGOS.n8n },
-  { name: 'SQL',                           logo: LOGOS.sql },
-  { name: 'Linux (Bash/Shell)',            logo: LOGOS.bash },
-  { name: 'Node.js',                       logo: LOGOS.node },
-  { name: 'Docker',                        logo: LOGOS.docker },
+  { name: 'Python', logo: LOGOS.python },
+  { name: 'n8n', logo: LOGOS.n8n },
+  { name: 'SQL', logo: LOGOS.sql },
+  { name: 'Linux (Bash/Shell)', logo: LOGOS.bash },
+  { name: 'Node.js', logo: LOGOS.node },
+  { name: 'Docker', logo: LOGOS.docker },
 ];
 
 const STACK_FRAMEWORKS = [
-  { name: 'Django',      logo: LOGOS.django },
-  { name: 'Angular',     logo: LOGOS.angular },
+  { name: 'Django', logo: LOGOS.django },
+  { name: 'Angular', logo: LOGOS.angular },
 ];
 
 const STACK_CLOUD = [
-  { name: 'Azure',       logo: LOGOS.azure },
-  { name: 'GCP',         logo: LOGOS.gcp },
-  { name: 'Railway',     logo: LOGOS.railway },
+  { name: 'Azure', logo: LOGOS.azure },
+  { name: 'GCP', logo: LOGOS.gcp },
+  { name: 'Railway', logo: LOGOS.railway },
 ];
 
 const STACK_BI = [
-  { name: 'Power BI',    logo: LOGOS.powerbi },
+  { name: 'Power BI', logo: LOGOS.powerbi },
 ];
 
 const STACK_CICD = [
-  { name: 'Git',         logo: LOGOS.git },
-  { name: 'GitHub',      logo: LOGOS.github },
+  { name: 'Git', logo: LOGOS.git },
+  { name: 'GitHub', logo: LOGOS.github },
 ];
 
 
@@ -60,14 +60,14 @@ const PROJECTS = [
   {
     id: 'visado',
     title: 'Workflow de Visado IA',
-    summary: 'Validación semántica documental — Creditú.',
+    summary: 'Creditú — Validación semántica documental.',
     desc: 'Desarrollo de una herramienta completa para el equipo de gestión. La lógica de comparación documental se construyó como un motor en n8n impulsado por Gemini, integrándose a la par con una plataforma web que desarrollé para que los gestores puedan cargar y administrar los documentos a evaluar.',
     tags: ['n8n', 'Gemini', 'Django', 'Angular'],
   },
   {
     id: 'mora',
     title: 'Reportería de Mora',
-    summary: 'Migración ETL a ecosistema BI moderno — Creditú.',
+    summary: 'Creditú — Migración ETL a ecosistema BI moderno.',
     desc: 'Desarrollo de un pipeline programado diariamente que extrae datos históricos desde PostgreSQL y los carga en BigQuery, permitiendo visualizar en Power BI el estado de las carteras de crédito y su morosidad para reportar a inversionistas.',
     tags: ['BigQuery', 'PostgreSQL', 'Power BI', 'Railway'],
   },
