@@ -4,7 +4,7 @@ const LOGOS = {
   python: `<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" style="width:100%;height:100%;object-fit:contain;" />`,
   n8n: `<svg viewBox="0 0 32 32" fill="none"><circle cx="7" cy="16" r="3" fill="#ea4335"/><circle cx="25" cy="16" r="3" fill="#ea4335"/><circle cx="16" cy="16" r="2.5" stroke="#ea4335" stroke-width="1.8"/><path d="M10 16h3M19 16h3" stroke="#ea4335" stroke-width="1.5"/></svg>`,
   sql: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:100%;height:100%;"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>`,
-  bash: `<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg" style="width:100%;height:100%;object-fit:contain;" />`,
+  bash: `<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" style="width:100%;height:100%;object-fit:contain;" />`,
   node: `<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" style="width:100%;height:100%;object-fit:contain;" />`,
   docker: `<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" style="width:100%;height:100%;object-fit:contain;" />`,
   django: `<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg" style="width:100%;height:100%;object-fit:contain;" class="theme-invert-dark" />`,
