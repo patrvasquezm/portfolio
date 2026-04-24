@@ -159,6 +159,7 @@ function ExperienceView() {
         </div>
       ))}
 
+      <h2 style={{ marginTop: 40, marginBottom: 20 }}>Educación</h2>
       <div className="xp">
         <div className="period">{EDUCATION.period}</div>
         <div>

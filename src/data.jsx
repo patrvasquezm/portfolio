@@ -88,7 +88,7 @@ const EXPERIENCE = [
 
 const EDUCATION = {
   school: 'Duoc UC',
-  degree: 'Ingeniería en Informática (Egresado)',
+  degree: 'Ingeniería en Informática - Egresado',
   period: '2022 — 2026',
 };
 

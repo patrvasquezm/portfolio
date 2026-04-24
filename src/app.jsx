@@ -19,7 +19,6 @@ function ActivityBar({ isDark, toggleTheme }) {
       <button className="act-btn" title="Extensions" dangerouslySetInnerHTML={{ __html: IconSvgs.ext }} />
       <div className="act-spacer" />
       <button className="act-btn" title="Toggle Theme" onClick={toggleTheme} dangerouslySetInnerHTML={{ __html: isDark ? IconSvgs.sun : IconSvgs.moon }} />
-      <button className="act-btn" title="Settings" dangerouslySetInnerHTML={{ __html: IconSvgs.settings }} />
     </div>
   );
 }
