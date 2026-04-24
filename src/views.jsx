@@ -178,7 +178,7 @@ function ContactView() {
       </div>
       <h1 style={{ fontSize: 28, marginBottom: 24 }}>Contacto</h1>
       <p style={{ maxWidth: 560, marginBottom: 24, lineHeight: 1.6 }}>
-        Me encanta hablar de tecnología, datos y de cómo la automatización puede resolver problemas reales. Si tienes un proyecto en mente, un desafío técnico o una posición donde creas que puedo sumar valor, no dudes en escribirme.
+        Enfocado en diseñar soluciones escalables de Data Engineering, automatización de flujos e integración de IA. Disponible para roles y desafíos técnicos orientados a optimizar operaciones y generar impacto de negocio.
       </p>
 
       <div className="yaml">
