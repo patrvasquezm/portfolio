@@ -177,8 +177,8 @@ function ContactView() {
         {`# contact.yml`}
       </div>
       <h1 style={{ fontSize: 28, marginBottom: 24 }}>Contacto</h1>
-      <p style={{ maxWidth: 560, marginBottom: 24 }}>
-        Abierto a oportunidades y colaboraciones en Data Engineering, IA y automatización.
+      <p style={{ maxWidth: 560, marginBottom: 24, lineHeight: 1.6 }}>
+        Me encanta hablar de tecnología, datos y de cómo la automatización puede resolver problemas reales. Si tienes un proyecto en mente, un desafío técnico o una posición donde creas que puedo sumar valor, no dudes en escribirme.
       </p>
 
       <div className="yaml">
