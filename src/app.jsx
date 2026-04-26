@@ -2,11 +2,11 @@ const { useState, useEffect, useRef } = React;
 
 /* Files registry — the "open tabs" and file tree */
 const FILES = [
-  { id: 'about',      name: 'README.md',      kind: 'md',   path: '~',            view: () => <AboutView /> },
-  { id: 'stack',      name: 'stack.json',     kind: 'json', path: '~',            view: () => <StackView /> },
-  { id: 'projects',   name: 'projects.md',    kind: 'md',   path: '~/projects',   view: () => <ProjectsView /> },
-  { id: 'experience', name: 'experience.md',  kind: 'md',   path: '~',            view: () => <ExperienceView /> },
-  { id: 'contact',    name: 'contact.yml',    kind: 'yml',  path: '~',            view: () => <ContactView /> },
+  { id: 'about', name: 'README.md', kind: 'md', path: '~', view: () => <AboutView /> },
+  { id: 'stack', name: 'stack.json', kind: 'json', path: '~', view: () => <StackView /> },
+  { id: 'projects', name: 'projects.md', kind: 'md', path: '~/projects', view: () => <ProjectsView /> },
+  { id: 'experience', name: 'experience.md', kind: 'md', path: '~', view: () => <ExperienceView /> },
+  { id: 'contact', name: 'contact.yml', kind: 'yml', path: '~', view: () => <ContactView /> },
 ];
 
 function ActivityBar({ isDark, toggleTheme }) {
@@ -170,15 +170,14 @@ function StatusBar({ file }) {
     <div className="statusbar">
       <div className="sb-item brand">
         <svg viewBox="0 0 16 16" width="12" height="12" fill="none" style={{ marginRight: 6 }}>
-          <path d="M6 2l-3 3 3 3M10 14l3-3-3-3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/>
+          <path d="M6 2l-3 3 3 3M10 14l3-3-3-3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
         </svg>
-        patricio.vasquez
       </div>
       <div className="sb-item">
         <svg viewBox="0 0 16 16" width="12" height="12" fill="none" style={{ marginRight: 6 }}>
-          <circle cx="4" cy="4" r="2" stroke="currentColor" strokeWidth="1.2"/>
-          <circle cx="12" cy="12" r="2" stroke="currentColor" strokeWidth="1.2"/>
-          <path d="M4 6v4a2 2 0 0 0 2 2h4" stroke="currentColor" strokeWidth="1.2"/>
+          <circle cx="4" cy="4" r="2" stroke="currentColor" strokeWidth="1.2" />
+          <circle cx="12" cy="12" r="2" stroke="currentColor" strokeWidth="1.2" />
+          <path d="M4 6v4a2 2 0 0 0 2 2h4" stroke="currentColor" strokeWidth="1.2" />
         </svg>
         main
       </div>
