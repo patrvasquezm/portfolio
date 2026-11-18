@@ -1,96 +1,84 @@
 /* ==========================================================================
-   patricio@vasquez:~ — TUI / CLI Portfolio
-   Inspired by tmux, lazygit, btop & terminal.shop · 100% Monospace, 0px radius
+   patricio@vasquez:~ — Clean Single-Window CLI Portfolio
+   Calm, readable, zero multi-pane clutter
    ========================================================================== */
 
 :root,
 [data-theme='ghostty'] {
-  --bg-outer: #05070a;
-  --bg: #090b10;
-  --bg-pane: #0d1017;
-  --bg-sel: #171d2b;
-  --bg-bar: #121622;
-  --line: #232b3e;
-  --line-active: #5673b8;
+  --bg-page: #06080c;
+  --bg-win: #0b0e14;
+  --bg-bar: #11151f;
+  --bg-hover: #161c29;
+  --line: #1f2637;
+  --line-bright: #34405c;
 
-  --fg: #dce3f2;
-  --fg-dim: #8b96b0;
-  --fg-muted: #55607a;
+  --fg: #e2e8f4;
+  --fg-body: #a3aec4;
+  --fg-muted: #5c677f;
 
   --c-green: #9ece6a;
   --c-cyan: #7dcfff;
   --c-amber: #e0af68;
-  --c-magenta: #bb9af7;
-  --c-red: #f7768e;
   --c-blue: #7aa2f7;
 
   --scanline: 0;
 }
 
 [data-theme='gruvbox'] {
-  --bg-outer: #141617;
-  --bg: #1d2021;
-  --bg-pane: #242728;
-  --bg-sel: #32302f;
+  --bg-page: #141617;
+  --bg-win: #1d2021;
   --bg-bar: #282828;
+  --bg-hover: #32302f;
   --line: #3c3836;
-  --line-active: #d79921;
+  --line-bright: #504945;
 
   --fg: #ebdbb2;
-  --fg-dim: #bdae93;
+  --fg-body: #c5b699;
   --fg-muted: #7c6f64;
 
   --c-green: #b8bb26;
   --c-cyan: #8ec07c;
   --c-amber: #fabd2f;
-  --c-magenta: #d3869b;
-  --c-red: #fb4934;
   --c-blue: #83a598;
 
   --scanline: 0;
 }
 
 [data-theme='phosphor'] {
-  --bg-outer: #020503;
-  --bg: #050a06;
-  --bg-pane: #08110a;
-  --bg-sel: #0f2414;
-  --bg-bar: #0a170d;
-  --line: #193b21;
-  --line-active: #4afa82;
+  --bg-page: #020503;
+  --bg-win: #060c07;
+  --bg-bar: #0a160c;
+  --bg-hover: #102414;
+  --line: #18381f;
+  --line-bright: #2a6337;
 
   --fg: #62ff96;
-  --fg-dim: #36b862;
-  --fg-muted: #1f753c;
+  --fg-body: #45cc72;
+  --fg-muted: #22783f;
 
   --c-green: #62ff96;
   --c-cyan: #8affb2;
   --c-amber: #b8ff62;
-  --c-magenta: #62ffd2;
-  --c-red: #ff7a7a;
-  --c-blue: #4afa82;
+  --c-blue: #62ff96;
 
   --scanline: 1;
 }
 
 [data-theme='paper'] {
-  --bg-outer: #e6e4dc;
-  --bg: #f4f3ee;
-  --bg-pane: #faf9f5;
-  --bg-sel: #e9e6dc;
-  --bg-bar: #e8e5db;
-  --line: #cfc9ba;
-  --line-active: #0969da;
+  --bg-page: #eae8e1;
+  --bg-win: #faf9f5;
+  --bg-bar: #efede6;
+  --bg-hover: #e8e5dc;
+  --line: #dcd8cc;
+  --line-bright: #bdb7a7;
 
   --fg: #181a1c;
-  --fg-dim: #4c525a;
-  --fg-muted: #7e858e;
+  --fg-body: #454a52;
+  --fg-muted: #848a94;
 
   --c-green: #1a7f37;
   --c-cyan: #0550ae;
   --c-amber: #9a6700;
-  --c-magenta: #8250df;
-  --c-red: #cf222e;
   --c-blue: #0969da;
 
   --scanline: 0;
@@ -102,35 +90,38 @@
   padding: 0;
 }
 
-html, body {
-  height: 100%;
-  background: var(--bg-outer);
-  color: var(--fg);
-  font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
-  font-size: 13px;
-  line-height: 1.55;
-  -webkit-font-smoothing: antialiased;
+html {
+  -webkit-text-size-adjust: 100%;
 }
 
-/* Optional subtle CRT scanlines in phosphor theme */
+body {
+  background: var(--bg-page);
+  color: var(--fg-body);
+  font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 13.5px;
+  line-height: 1.68;
+  -webkit-font-smoothing: antialiased;
+  padding: 36px 16px 64px;
+}
+
 body::after {
   content: '';
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 900;
-  opacity: calc(var(--scanline) * 0.14);
+  opacity: calc(var(--scanline) * 0.12);
   background: repeating-linear-gradient(
     to bottom,
     transparent 0px,
     transparent 2px,
-    rgba(0, 0, 0, 0.65) 3px
+    rgba(0, 0, 0, 0.6) 3px
   );
 }
 
 ::selection {
   background: var(--c-cyan);
-  color: var(--bg);
+  color: var(--bg-win);
 }
 
 a {
@@ -146,843 +137,455 @@ button {
   cursor: pointer;
 }
 
-/* Outer Terminal Frame */
-.tui-viewport {
-  max-width: 1220px;
-  height: 100dvh;
+/* Single Clean Terminal Window */
+.term-win {
+  max-width: 760px;
   margin: 0 auto;
-  padding: 12px;
-  display: flex;
-  flex-direction: column;
-}
-
-.tui-frame {
-  flex: 1;
-  min-height: 0;
-  background: var(--bg);
+  background: var(--bg-win);
   border: 1px solid var(--line);
-  display: grid;
-  grid-template-rows: 32px 1fr auto 26px;
-  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
 }
 
-/* ==========================================================================
-   Top tmux Bar
-   ========================================================================== */
-.tmux-top {
+/* Minimal Titlebar */
+.term-bar {
+  height: 38px;
+  padding: 0 16px;
   background: var(--bg-bar);
   border-bottom: 1px solid var(--line);
   display: flex;
-  align-items: stretch;
+  align-items: center;
   justify-content: space-between;
-  overflow-x: auto;
+  gap: 12px;
+  font-size: 12px;
   user-select: none;
-  scrollbar-width: none;
 }
 
-.tmux-top::-webkit-scrollbar {
-  display: none;
-}
-
-.tmux-left,
-.tmux-right {
+.term-title {
+  color: var(--fg-muted);
   display: flex;
-  align-items: stretch;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.win-dots {
+  display: inline-flex;
+  gap: 6px;
+}
+
+.win-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--line-bright);
+}
+
+.term-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
   flex-shrink: 0;
 }
 
-.tmux-session {
-  background: var(--c-green);
-  color: #080b0e;
-  font-weight: 700;
-  padding: 0 10px;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12px;
+.bar-btn {
+  font-size: 11.5px;
+  color: var(--fg-muted);
+  padding: 2px 6px;
+  border: 1px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
 }
 
-.tmux-tab {
-  padding: 0 12px;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: var(--fg-dim);
-  border-right: 1px solid var(--line);
-  font-size: 12px;
-  transition: background-color 0.1s, color 0.1s;
-}
-
-.tmux-tab:hover {
-  background: var(--bg-sel);
+.bar-btn:hover {
   color: var(--fg);
+  border-color: var(--line-bright);
 }
 
-.tmux-tab.active {
-  background: var(--bg);
-  color: var(--c-cyan);
-  font-weight: 600;
-  box-shadow: inset 0 2px 0 var(--c-cyan);
-}
-
-.tmux-tab .idx {
-  color: var(--fg-muted);
-}
-
-.tmux-tab.active .idx {
+.bar-btn .v {
   color: var(--c-amber);
 }
 
-.tmux-pill {
-  padding: 0 10px;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  border-left: 1px solid var(--line);
-  font-size: 11.5px;
-  color: var(--fg-dim);
+/* Terminal Content Flow */
+.term-body {
+  padding: 36px 38px 34px;
 }
 
-button.tmux-pill:hover {
-  background: var(--bg-sel);
-  color: var(--fg);
+.cmd-block {
+  margin-bottom: 44px;
 }
 
-.tmux-pill .val {
-  color: var(--c-amber);
-}
-
-/* ==========================================================================
-   TUI Main Workspace & Bordered Panes (lazygit / btop style)
-   ========================================================================== */
-.tui-body {
-  min-height: 0;
-  padding: 12px;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-}
-
-.pane {
-  position: relative;
-  border: 1px solid var(--line);
-  background: var(--bg-pane);
-  padding: 18px 16px 14px;
-}
-
-.pane.focused {
-  border-color: var(--line-active);
-}
-
-.pane-title {
-  position: absolute;
-  top: -9px;
-  left: 10px;
-  background: var(--bg-pane);
-  padding: 0 6px;
-  font-size: 11.5px;
-  color: var(--c-cyan);
-  font-weight: 500;
-  white-space: nowrap;
-}
-
-.pane-title .idx-tag {
-  color: var(--fg-muted);
-  margin-right: 4px;
-}
-
-/* ==========================================================================
-   Window 1: Overview (neofetch + README + systemctl pipelines)
-   ========================================================================== */
-.overview-grid {
-  display: grid;
-  grid-template-columns: 380px 1fr;
-  gap: 14px;
-  flex: 1;
-  align-content: start;
-}
-
-.left-stack,
-.right-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.mini-log-list {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  font-size: 12px;
-}
-
-.mini-log-item .hash {
-  color: var(--c-amber);
-  margin-right: 6px;
-}
-
-.mini-log-item .sub {
-  display: block;
-  color: var(--fg-muted);
-  padding-left: 16px;
-  font-size: 11.5px;
-}
-
-.mini-link-row {
-  margin-top: 10px;
-  padding-top: 8px;
-  border-top: 1px dashed var(--line);
-  display: flex;
-  justify-content: flex-end;
-}
-
-.mini-jump {
-  font-size: 11.5px;
-  color: var(--c-cyan);
-}
-
-.mini-jump:hover {
-  text-decoration: underline;
-}
-
-.core-tags-wrap {
+.prompt-line {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 16px;
+  font-size: 13px;
 }
 
-.core-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 3px 8px;
-  border: 1px solid var(--line);
-  background: var(--bg);
-  font-size: 11.5px;
+.ps1 .u { color: var(--c-green); font-weight: 600; }
+.ps1 .p { color: var(--c-blue); font-weight: 600; }
+.ps1 .dlr { color: var(--fg-muted); }
+
+.cmd-text {
   color: var(--fg);
-}
-
-.ascii-logo {
-  color: var(--c-cyan);
-  font-weight: 700;
-  line-height: 1.18;
-  margin-bottom: 12px;
-  font-size: 12px;
-}
-
-.nf-header {
-  margin-bottom: 8px;
-  padding-bottom: 6px;
-  border-bottom: 1px dashed var(--line);
   font-weight: 600;
 }
 
-.nf-header .u { color: var(--c-green); }
-.nf-header .h { color: var(--c-cyan); }
-
-.nf-rows {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+/* 1. Hero / whoami Output */
+.who-name {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--fg);
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin-bottom: 4px;
 }
 
-.nf-row {
-  display: grid;
-  grid-template-columns: 92px 1fr;
+.who-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   gap: 8px;
   font-size: 12.5px;
-}
-
-.nf-k {
-  color: var(--c-amber);
-}
-
-.nf-v.ok {
-  color: var(--c-green);
-  font-weight: 600;
-}
-
-.ansi-swatches {
-  margin-top: 14px;
-  padding-top: 10px;
-  border-top: 1px dashed var(--line);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-}
-
-.swatch-row {
-  display: flex;
-  gap: 5px;
-}
-
-.swatch {
-  width: 18px;
-  height: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.swatch-hint {
-  font-size: 11px;
   color: var(--fg-muted);
+  margin-bottom: 16px;
 }
 
-.swatch-hint:hover {
-  color: var(--fg);
+.who-role {
+  color: var(--c-cyan);
+  font-weight: 500;
 }
 
-.readme-p {
-  color: var(--fg);
-  margin-bottom: 10px;
-  font-size: 13px;
-  line-height: 1.62;
-}
-
-.readme-p:last-of-type {
-  margin-bottom: 14px;
-}
-
-.tui-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  padding-top: 10px;
-  border-top: 1px dashed var(--line);
-}
-
-.tui-btn {
+.who-status {
+  color: var(--c-green);
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 5px 10px;
+}
+
+.who-status::before {
+  content: '●';
+  font-size: 9px;
+}
+
+.bio-p {
+  margin-bottom: 10px;
+  max-width: 64ch;
+  color: var(--fg-body);
+}
+
+.link-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.cli-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
   border: 1px solid var(--line);
-  background: var(--bg);
+  background: var(--bg-bar);
   color: var(--fg);
   font-size: 12px;
-  transition: border-color 0.12s, background-color 0.12s, color 0.12s;
+  transition: border-color 0.15s, color 0.15s, background-color 0.15s;
 }
 
-.tui-btn:hover {
+.cli-link:hover {
   border-color: var(--c-cyan);
-  background: var(--bg-sel);
   color: var(--c-cyan);
+  background: var(--bg-hover);
 }
 
-.tui-btn.primary {
+.cli-link.copied {
   border-color: var(--c-green);
   color: var(--c-green);
 }
 
-.tui-btn.primary:hover {
-  background: var(--c-green);
-  color: #080b0e;
-}
-
-.tui-btn .k {
-  color: var(--c-amber);
-}
-
-.tui-btn.primary:hover .k {
-  color: #080b0e;
-}
-
-/* Systemd Pipelines Table */
-.unit-list {
+/* 2. Projects Output */
+.proj-list {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 22px;
 }
 
-.unit-row {
-  display: grid;
-  grid-template-columns: 18px 210px 76px 1fr auto;
-  gap: 10px;
-  align-items: center;
-  padding: 6px 8px;
-  border: 1px solid transparent;
-  text-align: left;
-  font-size: 12px;
-  transition: background-color 0.12s, border-color 0.12s;
-}
-
-.unit-row:hover {
-  background: var(--bg-sel);
-  border-color: var(--line);
-}
-
-.unit-dot {
-  color: var(--c-green);
-}
-
-.unit-name {
-  color: var(--fg);
-  font-weight: 500;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.unit-status {
-  color: var(--c-green);
-  font-size: 11px;
-}
-
-.unit-ctx {
-  color: var(--fg-dim);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.unit-go {
-  color: var(--c-cyan);
-  font-size: 11px;
-}
-
-/* ==========================================================================
-   Window 2: Projects (Master-Detail lazygit Explorer)
-   ========================================================================== */
-.projects-split {
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 14px;
-  flex: 1;
-  align-items: start;
-}
-
-.file-list {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.file-item {
-  width: 100%;
-  text-align: left;
-  padding: 8px 10px;
-  border: 1px solid transparent;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.file-item:hover {
-  background: var(--bg-sel);
-}
-
-.file-item.selected {
-  background: var(--bg-sel);
-  border-color: var(--line-active);
-}
-
-.file-item-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 6px;
-}
-
-.file-name {
-  color: var(--fg);
-  font-weight: 600;
-}
-
-.file-item.selected .file-name {
-  color: var(--c-cyan);
-}
-
-.file-badge {
-  font-size: 10.5px;
-  color: var(--c-green);
-}
-
-.file-sub {
-  font-size: 11.5px;
-  color: var(--fg-muted);
-}
-
-.proj-detail-head {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  padding-bottom: 10px;
-  margin-bottom: 12px;
+.proj-item {
+  padding-bottom: 22px;
   border-bottom: 1px dashed var(--line);
 }
 
-.proj-detail-title {
+.proj-item:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.proj-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.proj-head-left {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.proj-idx {
+  color: var(--c-amber);
+  font-size: 12px;
+}
+
+.proj-title {
   font-size: 15px;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--fg);
 }
 
-.proj-ctx-line {
-  font-size: 11.5px;
-  color: var(--c-amber);
-  margin-top: 2px;
+a.proj-title {
+  text-decoration: underline;
+  text-decoration-color: var(--line-bright);
+  text-underline-offset: 4px;
 }
 
-.proj-desc-p {
-  color: var(--fg);
-  margin-bottom: 14px;
-  line-height: 1.62;
-}
-
-.ascii-box {
-  background: var(--bg);
-  border: 1px solid var(--line);
-  padding: 12px 14px;
+a.proj-title:hover {
   color: var(--c-cyan);
-  font-size: 11.8px;
-  line-height: 1.45;
-  overflow-x: auto;
-  margin-bottom: 14px;
+  text-decoration-color: var(--c-cyan);
 }
 
-.tui-bullets {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  margin-bottom: 14px;
-}
-
-.tui-bullets li {
-  padding-left: 18px;
-  position: relative;
-  color: var(--fg-dim);
-  font-size: 12.5px;
-}
-
-.tui-bullets li::before {
-  content: '├─';
-  position: absolute;
-  left: 0;
+.proj-ctx {
+  font-size: 12px;
   color: var(--fg-muted);
 }
 
-.tui-bullets li:last-child::before {
-  content: '└─';
+.proj-desc {
+  color: var(--fg-body);
+  margin-bottom: 10px;
+  max-width: 65ch;
 }
 
-.flag-tags {
+.proj-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
-}
-
-.flag-tag {
-  padding: 2px 8px;
-  background: var(--bg);
-  border: 1px solid var(--line);
-  color: var(--c-magenta);
+  gap: 6px 12px;
   font-size: 11.5px;
+  color: var(--fg-muted);
 }
 
-/* ==========================================================================
-   Window 3: Stack (pacman / htop Package Table)
-   ========================================================================== */
-.stack-filter-bar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 12px;
-}
-
-.filter-tab {
-  padding: 3px 10px;
-  border: 1px solid var(--line);
-  background: var(--bg);
-  color: var(--fg-dim);
-  font-size: 12px;
-}
-
-.filter-tab:hover {
-  color: var(--fg);
-  border-color: var(--fg-muted);
-}
-
-.filter-tab.active {
-  border-color: var(--c-cyan);
+.proj-tags span::before {
+  content: '#';
   color: var(--c-cyan);
-  background: var(--bg-sel);
+  opacity: 0.7;
 }
 
-.pkg-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 12.5px;
+/* 3. Stack Output */
+.stack-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.pkg-table th {
-  text-align: left;
-  padding: 6px 10px;
-  border-bottom: 1px solid var(--line);
-  color: var(--c-amber);
-  font-weight: 600;
-  font-size: 11.5px;
-}
-
-.pkg-table td {
-  padding: 7px 10px;
+.stack-row {
+  display: grid;
+  grid-template-columns: 125px 1fr;
+  gap: 16px;
+  align-items: baseline;
+  padding-bottom: 10px;
   border-bottom: 1px dashed var(--line);
 }
 
-.pkg-table tr:hover td {
-  background: var(--bg-sel);
+.stack-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
-.pkg-cell-name {
+.stack-key {
+  color: var(--c-amber);
+  font-size: 12px;
+}
+
+.stack-vals {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+
+.stack-item {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   color: var(--fg);
-  font-weight: 500;
+  font-size: 13px;
 }
 
-.pkg-ico {
-  width: 14px;
-  height: 14px;
+.stack-ico {
+  width: 13px;
+  height: 13px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
 
-.pkg-ico img,
-.pkg-ico svg {
+.stack-ico img,
+.stack-ico svg {
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
 
-.pkg-cat {
-  color: var(--c-magenta);
-  font-size: 11.5px;
-}
-
-.pkg-use {
-  color: var(--fg-dim);
-}
-
-/* ==========================================================================
-   Window 4: Career (git log --graph)
-   ========================================================================== */
-.git-graph {
+/* 4. Timeline Output */
+.tl-list {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.commit-node {
-  position: relative;
-  padding-left: 26px;
-  border-left: 2px solid var(--line-active);
-  margin-left: 8px;
+.tl-item {
+  display: grid;
+  grid-template-columns: 125px 1fr;
+  gap: 16px;
 }
 
-.commit-node::before {
-  content: '*';
-  position: absolute;
-  left: -9px;
-  top: 0;
-  width: 16px;
-  height: 18px;
-  background: var(--bg-pane);
+.tl-period {
   color: var(--c-amber);
-  font-weight: 700;
-  text-align: center;
-  line-height: 18px;
+  font-size: 12.5px;
 }
 
-.commit-head {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 4px;
-}
-
-.commit-hash {
-  color: var(--c-amber);
+.tl-org {
+  color: var(--fg);
   font-weight: 600;
-}
-
-.commit-refs {
-  color: var(--c-cyan);
-  font-size: 11.5px;
-}
-
-.commit-title {
   font-size: 14px;
-  font-weight: 600;
-  color: var(--fg);
-  margin-bottom: 2px;
 }
 
-.commit-meta {
-  font-size: 12px;
+.tl-role {
   color: var(--fg-muted);
-  margin-bottom: 10px;
+  font-size: 12.5px;
+  margin-bottom: 6px;
 }
 
-/* ==========================================================================
-   Window 5: Interactive Shell Output
-   ========================================================================== */
-.shell-pane {
-  flex: 1;
+.tl-bullets {
+  list-style: none;
   display: flex;
   flex-direction: column;
-  min-height: 300px;
+  gap: 5px;
 }
 
-.shell-shortcuts {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 12px;
-  padding-bottom: 10px;
-  border-bottom: 1px dashed var(--line);
+.tl-bullets li {
+  position: relative;
+  padding-left: 16px;
+  font-size: 13px;
 }
 
-.shell-log {
-  flex: 1;
-  overflow-y: auto;
+.tl-bullets li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: var(--fg-muted);
+}
+
+/* 5. Interactive Prompt at the End */
+.live-shell {
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+}
+
+.shell-history {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.sh-out {
+  white-space: pre-wrap;
+  color: var(--fg-body);
+  padding-left: 12px;
+  border-left: 2px solid var(--line-bright);
+  margin-top: 4px;
   font-size: 12.5px;
 }
 
-.shell-entry-cmd {
-  color: var(--c-green);
-}
-
-.shell-entry-out {
-  color: var(--fg);
-  white-space: pre-wrap;
-  padding-left: 12px;
-  border-left: 1px solid var(--line);
-}
-
-/* ==========================================================================
-   Persistent Bottom CLI Prompt + Keyhint Bar
-   ========================================================================== */
-.cli-bar {
-  border-top: 1px solid var(--line);
-  background: var(--bg);
-  padding: 7px 12px;
+.prompt-form {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-.cli-ps1 {
-  white-space: nowrap;
-  font-weight: 600;
-  font-size: 12.5px;
-}
-
-.cli-ps1 .u { color: var(--c-green); }
-.cli-ps1 .p { color: var(--c-blue); }
-
-.cli-input {
+.prompt-input {
   flex: 1;
   background: none;
   border: none;
   color: var(--fg);
   font: inherit;
-  font-size: 12.5px;
+  font-size: 13px;
   outline: none;
   min-width: 0;
 }
 
-.cli-toast {
-  font-size: 11.5px;
-  color: var(--c-green);
-  white-space: nowrap;
-}
-
-.keybar {
-  background: var(--bg-bar);
-  border-top: 1px solid var(--line);
-  padding: 0 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  font-size: 11px;
+.prompt-input::placeholder {
   color: var(--fg-muted);
-  overflow-x: auto;
-  scrollbar-width: none;
 }
 
-.keybar::-webkit-scrollbar {
-  display: none;
-}
-
-.keyhints {
+.prompt-hints {
+  margin-top: 10px;
+  font-size: 11.5px;
+  color: var(--fg-muted);
   display: flex;
-  align-items: center;
-  gap: 14px;
-  white-space: nowrap;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
-.kh kbd {
-  font-family: inherit;
-  color: var(--c-amber);
-  margin-right: 4px;
+.hint-btn {
+  color: var(--fg-muted);
+  font-size: 11.5px;
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 3px;
 }
 
-/* ==========================================================================
-   Responsive Mobile TUI
-   ========================================================================== */
-@media (max-width: 900px) {
-  .tui-viewport {
+.hint-btn:hover {
+  color: var(--c-cyan);
+  text-decoration-color: var(--c-cyan);
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  body {
     padding: 0;
-    height: auto;
-    min-height: 100dvh;
+    background: var(--bg-win);
   }
 
-  .tui-frame {
+  .term-win {
     border: none;
-    grid-template-rows: 36px 1fr auto 28px;
-    min-height: 100dvh;
+    box-shadow: none;
   }
 
-  .overview-grid,
-  .projects-split {
+  .term-bar {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+  }
+
+  .term-body {
+    padding: 24px 18px 40px;
+  }
+
+  .cmd-block {
+    margin-bottom: 36px;
+  }
+
+  .stack-row,
+  .tl-item {
     grid-template-columns: 1fr;
-  }
-
-  .unit-row {
-    grid-template-columns: 16px 1fr auto;
-  }
-
-  .unit-ctx,
-  .unit-go {
-    display: none;
-  }
-}
-
-@media (max-width: 560px) {
-  .tmux-session span {
-    display: none;
-  }
-
-  .tmux-tab {
-    padding: 0 9px;
-    font-size: 11.5px;
-  }
-
-  .clock-pill {
-    display: none;
-  }
-
-  .pkg-cat-col {
-    display: none;
+    gap: 4px;
   }
 }
