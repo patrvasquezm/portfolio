@@ -1,4 +1,4 @@
-// Minimal inline SVGs — clean strokes, zero visual clutter
+// Clean monochrome UI icons & verified stack logos
 
 export const ICONS = {
   arrowUpRight: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5L11.5 4.5"/><path d="M5.75 4.5H11.5v5.75"/></svg>`,
@@ -6,6 +6,10 @@ export const ICONS = {
   check: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5l3 3 6-6.5"/></svg>`,
   sun: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="8" cy="8" r="2.8"/><path d="M8 1.8v1.5M8 12.7v1.5M14.2 8h-1.5M3.3 8H1.8M12.4 3.6l-1.1 1.1M4.7 11.3l-1.1 1.1M12.4 12.4l-1.1-1.1M4.7 4.7L3.6 3.6"/></svg>`,
   moon: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 10.2A5.8 5.8 0 1 1 5.8 2.5a4.7 4.7 0 0 0 7.7 7.7Z"/></svg>`,
+  terminal: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5l3.5 3L3 11"/><path d="M8.5 11H13"/></svg>`,
+  file: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2H4.5A1.5 1.5 0 0 0 3 3.5v9A1.5 1.5 0 0 0 4.5 14h7a1.5 1.5 0 0 0 1.5-1.5V6L9.5 2Z"/><path d="M9.5 2v4H13"/></svg>`,
+  github: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"/></svg>`,
+  linkedin: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77Z"/></svg>`,
 };
 
 export const LOGOS = {
@@ -14,7 +18,7 @@ export const LOGOS = {
   bigquery: `<svg viewBox="0 0 24 24" fill="none"><path d="M12 2.5L3.5 7.4v9.2L12 21.5l8.5-4.9V7.4L12 2.5Z" stroke="#4285F4" stroke-width="1.7"/><path d="M8.5 13.5v-3M11.5 14.5V8.5M14.5 13v-2.5" stroke="#669DF6" stroke-width="1.9" stroke-linecap="round"/></svg>`,
   powerbi: `<svg viewBox="0 0 24 24" fill="none"><rect x="14.5" y="4" width="4.5" height="16" rx="1.3" fill="#F2C811"/><rect x="9.8" y="8.5" width="4.5" height="11.5" rx="1.3" fill="#E8A90E"/><rect x="5" y="13" width="4.5" height="7" rx="1.3" fill="#D68A00"/></svg>`,
   n8n: `<svg viewBox="0 0 32 32" fill="none"><circle cx="7" cy="16" r="3" fill="#EA4B71"/><circle cx="25" cy="11" r="3" fill="#EA4B71"/><circle cx="25" cy="21" r="3" fill="#EA4B71"/><circle cx="15.5" cy="16" r="2.8" stroke="#EA4B71" stroke-width="2.2"/><path d="M10 16h2.7M18.2 14.7l4-2.3M18.2 17.3l4 2.3" stroke="#EA4B71" stroke-width="2" stroke-linecap="round"/></svg>`,
-  gemini: `<svg viewBox="0 0 24 24" fill="none"><path d="M12 2.5C12 7.75 7.75 12 2.5 12 7.75 12 12 16.25 12 21.5 12 16.25 16.25 12 21.5 12 16.25 12 12 7.75 12 2.5Z" fill="#7B93DB"/></svg>`,
+  gemini: `<svg viewBox="0 0 24 24" fill="none"><path d="M12 2.5C12 7.75 7.75 12 2.5 12 7.75 12 12 16.25 12 21.5 12 16.25 16.25 12 21.5 12 16.25 12 12 7.75 12 2.5Z" fill="#8E96AA"/></svg>`,
   embeddings: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="6" cy="6" r="2.2"/><circle cx="18" cy="7" r="2.2"/><circle cx="11" cy="18" r="2.2"/><path d="M8 7l7.8-.2M7.2 8l3 8M16.6 9l-4.2 7"/></svg>`,
   webhook: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 16.5a3 3 0 1 1-2.6 4.5H9a3 3 0 1 1 0-6h1.5"/><path d="M9 7.5a3 3 0 1 1 5.6-1.5L17 11.5"/><path d="M6 16.5L9.5 10"/></svg>`,
   django: `<svg viewBox="0 0 24 24" fill="none"><rect x="2.5" y="2.5" width="19" height="19" rx="4" fill="#092E20"/><path d="M10.9 6.5h2.1v8.7c-1.1.22-1.95.32-2.85.32-2.68 0-4.08-1.2-4.08-3.52 0-2.23 1.48-3.68 3.77-3.68.36 0 .64.03 1.06.12V6.5Zm0 3.76a2.38 2.38 0 0 0-.86-.14c-1.28 0-2.02.79-2.02 2.16 0 1.34.7 2.08 2.01 2.08.28 0 .54-.02.87-.07v-4.03Zm4.48-1.76h2.1v6.1c0 2.1-.16 3.1-.64 3.98-.45.86-1.05 1.4-2.28 1.99l-1.88-.9c1.22-.57 1.81-1.07 2.18-1.84.39-.8.52-1.72.52-3.44V8.5Zm0-2.1h2.1v1.65h-2.1V6.4Z" fill="#44B78B"/></svg>`,
