@@ -1,22 +1,17 @@
 import { LOGOS } from './icons.js';
 
-export const THEMES = ['ghostty', 'gruvbox', 'phosphor', 'paper'];
-
 export const PROFILE = {
-  user: 'patricio',
-  host: 'vasquez',
   name: 'Patricio Vásquez',
   email: 'patriciovm04@gmail.com',
   linkedin: 'https://www.linkedin.com/in/patriciovm',
   github: 'https://github.com/patriciovm98',
   cvUrl: 'uploads/Patricio_Vasquez_CV.docx.pdf',
-  domain: 'patriciovasquez.dev',
 };
 
 export const STACK_GROUPS = [
   {
-    labelEs: 'data & bi',
-    labelEn: 'data & bi',
+    labelEs: 'Datos & BI',
+    labelEn: 'Data & BI',
     items: [
       { name: 'Python', logo: LOGOS.python },
       { name: 'PostgreSQL', logo: LOGOS.postgresql },
@@ -25,8 +20,8 @@ export const STACK_GROUPS = [
     ],
   },
   {
-    labelEs: 'ia & flujos',
-    labelEn: 'ai & flows',
+    labelEs: 'Automatización',
+    labelEn: 'Automation',
     items: [
       { name: 'n8n', logo: LOGOS.n8n },
       { name: 'Gemini / LLMs', logo: LOGOS.gemini },
@@ -35,8 +30,8 @@ export const STACK_GROUPS = [
     ],
   },
   {
-    labelEs: 'desarrollo',
-    labelEn: 'dev',
+    labelEs: 'Desarrollo',
+    labelEn: 'Development',
     items: [
       { name: 'Django', logo: LOGOS.django },
       { name: 'Angular', logo: LOGOS.angular },
@@ -44,8 +39,8 @@ export const STACK_GROUPS = [
     ],
   },
   {
-    labelEs: 'cloud & env',
-    labelEn: 'cloud & env',
+    labelEs: 'Cloud & Entorno',
+    labelEn: 'Cloud & Infra',
     items: [
       { name: 'GCP', logo: LOGOS.gcp },
       { name: 'Azure', logo: LOGOS.azure },
@@ -59,128 +54,116 @@ export const STACK_GROUPS = [
 
 export const CONTENT = {
   es: {
-    role: 'Data & AI Engineer',
-    location: 'Santiago, CL',
-    status: 'disponible',
-    bio: [
-      'Ingeniero en Informática enfocado en Data Engineering y automatización de procesos. Construyo pipelines de datos, flujos en n8n e integraciones con modelos de lenguaje para resolver trabajo operativo real.',
-      'Recientemente en Creditú (Fintech), migrando reportería manual hacia BigQuery + Power BI y desarrollando herramientas internas de validación documental con IA.',
+    subtitle: 'Data & AI Engineer · Santiago, Chile',
+    intro: [
+      'Ingeniero en Informática enfocado en Data Engineering y automatización de procesos. Construyo pipelines de datos, flujos automatizados en n8n e integraciones con modelos de lenguaje aplicadas a problemas reales.',
+      'Recientemente completé mi práctica profesional en Creditú (Fintech), migrando reportería manual hacia arquitecturas en la nube con BigQuery y desarrollando herramientas internas de validación documental.',
     ],
     links: {
-      cv: 'cv.pdf',
-      copied: 'copiado!',
+      cv: 'Currículum',
+      copied: 'copiado',
     },
-    cmds: {
-      about: 'whoami',
-      projects: 'ls ./proyectos',
-      stack: 'cat ./stack.conf',
-      experience: 'cat ./trayectoria.log',
+    headings: {
+      projects: 'Proyectos',
+      experience: 'Experiencia',
+      stack: 'Tecnologías',
+      education: 'Educación',
     },
     projects: [
       {
-        idx: '01',
+        meta: 'Proyecto propio',
         title: 'Pectacular.cl',
-        ctx: 'Proyecto propio',
         url: 'https://www.pectacular.cl',
-        desc: 'Cotizador de perfumes entre retailers de Chile. Web end-to-end en Angular y Django con un motor de Entity Matching que unifica productos entre tiendas usando embeddings vectoriales y un LLM como juez.',
-        tags: ['Angular', 'Django', 'Python', 'Embeddings', 'LLMs', 'PostgreSQL'],
+        desc: 'Cotizador de perfumes entre retailers de Chile. Desarrollado end-to-end en Angular y Django, con un motor propio de Entity Matching que unifica productos entre tiendas usando embeddings vectoriales y un LLM como juez.',
+        tech: ['Angular', 'Django', 'Python', 'Embeddings', 'LLMs', 'PostgreSQL'],
       },
       {
-        idx: '02',
+        meta: 'Creditú · 2026',
         title: 'Workflow de Visado IA',
-        ctx: 'Creditú · 2026',
-        desc: 'Validación semántica documental para el equipo de operaciones. Conecta un portal web (Django + Angular) con un flujo en n8n y Gemini que contrasta documentos legales contra datos de origen y audita en Google Workspace.',
-        tags: ['n8n', 'Gemini', 'Django', 'Angular', 'Google APIs'],
+        desc: 'Herramienta interna de validación semántica documental para el equipo de gestión. Combina un flujo en n8n con Gemini para contrastar documentos legales frente a datos de origen y auditar ejecuciones en Google Workspace.',
+        tech: ['n8n', 'Gemini', 'Django', 'Angular', 'Google APIs'],
       },
       {
-        idx: '03',
+        meta: 'Creditú · 2026',
         title: 'Reportería de Mora',
-        ctx: 'Creditú · 2026',
-        desc: 'Pipeline ETL diario que extrae históricos desde PostgreSQL vía túneles SSH hacia BigQuery, alimentando dashboards en Power BI sobre morosidad y salud de carteras para inversionistas.',
-        tags: ['Python', 'PostgreSQL', 'BigQuery', 'Power BI', 'Railway'],
+        desc: 'Pipeline ETL diario que extrae históricos desde PostgreSQL vía túneles SSH hacia BigQuery, alimentando paneles en Power BI sobre el estado y morosidad de carteras de crédito para inversionistas.',
+        tech: ['Python', 'PostgreSQL', 'BigQuery', 'Power BI', 'Railway'],
       },
     ],
-    timeline: [
+    experience: [
       {
         period: '2026',
-        org: 'Creditú',
+        company: 'Creditú',
         role: 'Practicante de Data Engineering y Automatización',
         bullets: [
-          'Migración de reportería manual a pipeline ETL automatizado con Python y BigQuery para análisis de carteras de crédito.',
-          'Desarrollo de flujo documental con n8n, Gemini y auditoría automatizada sobre Google Workspace.',
+          'Migración de reportería manual a un pipeline ETL automatizado con Python y BigQuery para seguimiento de carteras de crédito.',
+          'Desarrollo de flujo documental con n8n, modelos de lenguaje y trazabilidad automatizada sobre Google Workspace.',
         ],
       },
-      {
-        period: '2022–2026',
-        org: 'Duoc UC',
-        role: 'Ingeniería en Informática (Egresado)',
-        bullets: ['Inglés intermedio alto (B2).'],
-      },
     ],
-    promptPlaceholder: "escribe 'help' para comandos opcionales...",
-    promptHint: 'comandos: help · cv · email · pectacular · theme · clear',
+    education: {
+      period: '2022 — 2026',
+      school: 'Duoc UC',
+      degree: 'Ingeniería en Informática (Egresado)',
+      note: 'Inglés intermedio alto (B2)',
+    },
+    footerRight: 'Santiago, Chile',
   },
 
   en: {
-    role: 'Data & AI Engineer',
-    location: 'Santiago, CL',
-    status: 'open to work',
-    bio: [
-      'Computer Engineer focused on Data Engineering and process automation. I build cloud data pipelines, n8n workflows, and practical LLM integrations to solve real operational bottlenecks.',
-      'Recently at Creditú (Fintech), migrating manual portfolio reporting to BigQuery + Power BI and building internal AI document verification tools.',
+    subtitle: 'Data & AI Engineer · Santiago, Chile',
+    intro: [
+      'Computer Engineer focused on Data Engineering and process automation. I build cloud data pipelines, automated workflows in n8n, and practical LLM integrations to solve day-to-day operational problems.',
+      'Recently completed my internship at Creditú (Fintech), migrating manual credit portfolio reporting to Google BigQuery and building internal document verification tools.',
     ],
     links: {
-      cv: 'cv.pdf',
-      copied: 'copied!',
+      cv: 'Resume',
+      copied: 'copied',
     },
-    cmds: {
-      about: 'whoami',
-      projects: 'ls ./projects',
-      stack: 'cat ./stack.conf',
-      experience: 'cat ./career.log',
+    headings: {
+      projects: 'Projects',
+      experience: 'Experience',
+      stack: 'Technologies',
+      education: 'Education',
     },
     projects: [
       {
-        idx: '01',
+        meta: 'Side project',
         title: 'Pectacular.cl',
-        ctx: 'Side project',
         url: 'https://www.pectacular.cl',
-        desc: 'Fragrance price comparison across Chilean retailers. Built end-to-end with Angular and Django, powered by an Entity Matching engine using vector embeddings and an LLM judge.',
-        tags: ['Angular', 'Django', 'Python', 'Embeddings', 'LLMs', 'PostgreSQL'],
+        desc: 'Fragrance price comparison across Chilean retailers. Built end-to-end with Angular and Django, backed by an Entity Matching pipeline using vector embeddings and an LLM judge.',
+        tech: ['Angular', 'Django', 'Python', 'Embeddings', 'LLMs', 'PostgreSQL'],
       },
       {
-        idx: '02',
+        meta: 'Creditú · 2026',
         title: 'AI Document Validation',
-        ctx: 'Creditú · 2026',
-        desc: 'Semantic document verification tool for operations. Pairs a Django + Angular portal with an n8n + Gemini workflow to cross-check legal files against source records and log audits in Google Workspace.',
-        tags: ['n8n', 'Gemini', 'Django', 'Angular', 'Google APIs'],
+        desc: 'Internal semantic validation tool for the operations team. Pairs an n8n + Gemini workflow with a Django and Angular web portal to cross-check legal files against source records.',
+        tech: ['n8n', 'Gemini', 'Django', 'Angular', 'Google APIs'],
       },
       {
-        idx: '03',
+        meta: 'Creditú · 2026',
         title: 'Delinquency ETL Pipeline',
-        ctx: 'Creditú · 2026',
-        desc: 'Daily Python ETL extracting historical records from PostgreSQL over SSH tunnels into BigQuery, powering investor Power BI dashboards on credit portfolio health.',
-        tags: ['Python', 'PostgreSQL', 'BigQuery', 'Power BI', 'Railway'],
+        desc: 'Scheduled daily ETL extracting historical data from PostgreSQL over SSH tunnels into BigQuery, feeding Power BI dashboards on credit portfolio delinquency for investors.',
+        tech: ['Python', 'PostgreSQL', 'BigQuery', 'Power BI', 'Railway'],
       },
     ],
-    timeline: [
+    experience: [
       {
         period: '2026',
-        org: 'Creditú',
+        company: 'Creditú',
         role: 'Data Engineering & Automation Intern',
         bullets: [
-          'Migrated manual reporting to an automated Python + BigQuery ETL pipeline for credit portfolio analysis.',
-          'Built an intelligent document review workflow in n8n with Gemini and automated Google Workspace auditing.',
+          'Migrated manual spreadsheet reporting to an automated Python + BigQuery ETL pipeline for credit portfolio analysis.',
+          'Built an intelligent document review workflow in n8n with LLMs and automated execution auditing in Google Workspace.',
         ],
       },
-      {
-        period: '2022–2026',
-        org: 'Duoc UC',
-        role: 'B.Eng. in Computer Engineering (Graduate)',
-        bullets: ['Upper-Intermediate English (B2).'],
-      },
     ],
-    promptPlaceholder: "type 'help' for optional commands...",
-    promptHint: 'commands: help · cv · email · pectacular · theme · clear',
+    education: {
+      period: '2022 — 2026',
+      school: 'Duoc UC',
+      degree: 'B.Eng. in Computer Engineering (Graduate)',
+      note: 'Upper-Intermediate English (B2)',
+    },
+    footerRight: 'Santiago, Chile',
   },
 };
